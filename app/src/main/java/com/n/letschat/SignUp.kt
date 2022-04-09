@@ -57,6 +57,7 @@ class SignUp : AppCompatActivity() {
 
                          addUserToDatabase(name,email,mAuth.currentUser?.uid!!)
                          val intent = Intent( this@SignUp, MainActivity::class.java)
+                         finish()
                          startActivity(intent)
                      } else {
                         Toast.makeText(this@SignUp, "Error occurred, Please check again!", Toast.LENGTH_SHORT).show()
@@ -65,7 +66,7 @@ class SignUp : AppCompatActivity() {
          }
 
     private fun addUserToDatabase(name: String, email: String, uid:String){
-        val user = User(name, email,)
+        val user = User(name, email, uid)
         mDBRef.child("user").child(uid).setValue(user)
         mDBRef.child("user").child(uid).child("username").setValue(name)
     }

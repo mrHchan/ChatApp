@@ -53,6 +53,7 @@ class Login : AppCompatActivity() {
             ) { task ->
                 if (task.isSuccessful) {
                     val intent = Intent( this@Login, MainActivity::class.java)
+                    finish()
                     startActivity(intent)
 
                 } else {
